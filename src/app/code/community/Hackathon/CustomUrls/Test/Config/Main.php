@@ -4,7 +4,6 @@ class Hackathon_CustomUrls_Test_Config_Main extends EcomDev_PHPUnit_Test_Case_Co
 {
     /**
      * @test
-     * @group config
      */
     public function itProperlyResolvesTheModelAliasForObserver()
     {
@@ -13,7 +12,6 @@ class Hackathon_CustomUrls_Test_Config_Main extends EcomDev_PHPUnit_Test_Case_Co
 
     /**
      * @test
-     * @group config
      */
     public function itProperlyResolvesTheModelAliasForConfigCloneCustomurl()
     {
@@ -22,7 +20,6 @@ class Hackathon_CustomUrls_Test_Config_Main extends EcomDev_PHPUnit_Test_Case_Co
 
     /**
      * @test
-     * @group config
      */
     public function itDefinesTheRequiredCustomObserver()
     {
@@ -31,6 +28,30 @@ class Hackathon_CustomUrls_Test_Config_Main extends EcomDev_PHPUnit_Test_Case_Co
             'controller_front_init_routers',
             'hackathon_customurls/observer',
             'handleInitRouters'
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function itOverridesCoreUrlModel()
+    {
+        $this->assertModelAlias(
+            'core/url',
+            'Hackathon_CustomUrls_Model_Url'
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function itObservesGetUrlEvent()
+    {
+        $this->assertEventObserverDefined(
+            'frontend',
+            'hackathon_customurls_url_get_url',
+            'hackathon_customurls/observer',
+            'handleGetUrl'
         );
     }
 }

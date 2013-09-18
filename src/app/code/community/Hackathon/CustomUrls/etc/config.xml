@@ -4,6 +4,11 @@
             <hackathon_customurls>
                 <class>Hackathon_CustomUrls_Model</class>
             </hackathon_customurls>
+            <core>
+                <rewrite>
+                    <url>Hackathon_CustomUrls_Model_Url</url>
+                </rewrite>
+            </core>
         </models>
         <helpers>
             <hackathon_customurls>
@@ -30,6 +35,18 @@
             </checkout_cart_index>
         </custom_urls>
     </global>
+    <frontend>
+        <events>
+            <hackathon_customurls_url_get_url>
+                <observers>
+                    <hackathon_customurls>
+                        <class>hackathon_customurls/observer</class>
+                        <method>handleGetUrl</method>
+                    </hackathon_customurls>
+                </observers>
+            </hackathon_customurls_url_get_url>
+        </events>
+    </frontend>
     <default>
         <web>
             <custom_urls>
