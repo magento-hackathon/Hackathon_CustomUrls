@@ -8,31 +8,30 @@ class Hackathon_CustomUrls_Controller_Router extends Mage_Core_Controller_Varien
 
     public function match(Zend_Controller_Request_Http $request)
     {
+        $availableRoutes = $this->getAvailableRoutes();
 
-        $availableRoutes = Mage::getConfig()->getNode(self::XML_PATH_ROUTES)->children();
         $pathInfo = $request->getPathInfo();
-        foreach ($availableRoutes as $route) {
-            $configPath = sprintf(self::XML_PATH_FRONT_NAME, $route->getName());
-            $frontName = Mage::getStoreConfig($configPath);
+
+        foreach ($availableRoutes as $availableRoute) {
+
+            $frontName = $this->getUserDefinedRouteFrontName($availableRoute);
+
             if ($frontName && $frontName == trim($pathInfo, '/')) {
-                $routePath = explode('/', (string)$route->route, 4);
-                if (isset($routePath[0])) {
-                    $frontName = (string)Mage::getConfig()->getNode(
-                        sprintf(self::XML_PATH_FRONT_NAME_FOR_ROUTE, $routePath[0])
+
+                $routePath = explode('/', (string) $availableRoute->route);
+
+                if (!empty($routePath)) {
+                    list($routeName, $controllerName, $actionName) = array_merge(
+                        $routePath, array('index', 'index')
                     );
-                    $request->setModuleName($frontName);
-                    if (!empty($routePath[1])) {
-                        $controllerName = $routePath[1];
-                    } else {
-                        $controllerName = 'index';
-                    }
-                    if (!empty($routePath[2])) {
-                        $actionName = $routePath[2];
-                    } else {
-                        $actionName = 'index';
-                    }
-                    $request->setControllerName($controllerName)
+
+                    $moduleName = $this->getFrontNameByRoute($routeName);
+
+                    $request->setModuleName($moduleName)
+                            ->setControllerName($controllerName)
                             ->setActionName($actionName);
+
+                    $this->setRouteParameters($request, $availableRoute);
 
                     $request->setAlias(
                         Mage_Core_Model_Url_Rewrite::REWRITE_REQUEST_PATH_ALIAS,
@@ -45,5 +44,35 @@ class Hackathon_CustomUrls_Controller_Router extends Mage_Core_Controller_Varien
         }
 
         return false;
+    }
+
+    protected function getAvailableRoutes()
+    {
+        return Mage::getConfig()->getNode(self::XML_PATH_ROUTES)->children();
+    }
+
+    protected function getUserDefinedRouteFrontName($route)
+    {
+        return  Mage::getStoreConfig(sprintf(self::XML_PATH_FRONT_NAME, $route->getName()));
+    }
+
+    protected function setRouteParameters($request, $route)
+    {
+        if (isset($route->params) && $route->params->hasChildren()) {
+            $request->setParams($route->params->asArray(true));
+        }
+    }
+
+    public function getFrontNameByRoute($routeName)
+    {
+        $frontNameInConfig = (string) Mage::getConfig()->getNode(
+            sprintf(self::XML_PATH_FRONT_NAME_FOR_ROUTE, $routeName)
+        );
+
+        if ($frontNameInConfig) {
+            return $frontNameInConfig;
+        }
+
+        return parent::getFrontNameByRoute($routeName);
     }
 }
