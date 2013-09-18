@@ -9,6 +9,8 @@ env:
 before_script:
   # Fixing Magento hackathon installer
   - mkdir -p tests/magento
+   # Copying travis composer.json to test only module
+  - cp -f .travis/composer.json composer.json
   # Installing required composer packages
   - composer update --dev
   # Installing magento version with prepared DB dump
