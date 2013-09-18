@@ -1,0 +1,7 @@
+<config>
+    <phpunit>
+        <suite>
+            <Hackathon_CustomUrls />
+        </suite>
+    </phpunit>
+</config>
