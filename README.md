@@ -30,6 +30,7 @@ Developers
 - Ivan Chepurnyi - [@IvanChepurnyi](https://github.com/IvanChepurnyi)
 - Marco De Bortoli - [@MarcoDeBortoli](https://github.com/MarcoDeBortoli)
 - Drew Hunter - [@drewhunter](https://twitter.com/drewhunter)
+- Sarunas Valaskevicius - [@svalaskevicius](https://twitter.com/svalaskevicius)
 
 Licence
 -------
