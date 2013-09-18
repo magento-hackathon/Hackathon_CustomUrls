@@ -1,0 +1,30 @@
+{
+    "name": "hackathon/custom_urls",
+    "license": "OSL-3.0",
+    "type": "magento-module",
+    "description": "Custom Urls for system routes in Magento",
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    },
+    "require-dev": {
+        "ecomdev/mage-ci": "dev-master",
+        "phpunit/phpunit": "3.7.*"
+    },
+    "authors":[
+        {
+            "name":"Ivan Chepurnyi"
+        },
+        {
+            "name":"Marco De Bortoli"
+        },
+        {
+            "name":"Drew Hunter"
+        },
+        {
+            "name":"Sarunas Valaskevicius"
+        }
+    ],
+    "extra": {
+        "magento-root-dir": "tests/magento"
+    }
+}
