@@ -18,7 +18,7 @@ before_script:
   # Installing Custom Urls module
   - bin/mage-ci install-module tests/magento $(pwd)
   # Installing EcomDev_PHPUnit module
-  - git clone https://github.com/IvanChepurnyi/EcomDev_PHPUnit.git -b dev ./phpunit/
+  - git clone https://github.com/EcomDev/EcomDev_PHPUnit.git -b dev ./phpunit/
   - bin/mage-ci install-module $CURR_DIR/test $CURR_DIR/phpunit/
   # Configuring EcomDev_PHPUnit module
   - CURRENT_DIR=$(pwd)
