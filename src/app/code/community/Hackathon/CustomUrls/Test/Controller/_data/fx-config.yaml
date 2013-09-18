@@ -1,0 +1,18 @@
+config:
+  default/web/custom_urls/checkout_cart_index_url: mycart
+  default/web/custom_urls/checkout_cart_index_with_params_url: mycartwithparams
+config_xml:
+  global/custom_urls: --- |
+    <custom_urls>
+        <checkout_cart_index module="hackathon_customurls" translate="label">
+            <route>checkout/cart/index</route>
+            <label>Checkout Cart Url</label>
+        </checkout_cart_index>
+        <checkout_cart_index_with_params module="hackathon_customurls" translate="label">
+            <route>checkout/cart/index</route>
+            <label>Checkout Cart Url</label>
+            <params>
+                <my_awesome_param>some_value</my_awesome_param>
+            </params>
+        </checkout_cart_index_with_params>
+    </custom_urls>
