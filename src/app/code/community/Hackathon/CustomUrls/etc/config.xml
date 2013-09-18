@@ -1,7 +1,26 @@
 <config>
+    <global>
+        <models>
+            <hackathon_customurls>
+                <class>Hackathon_CustomUrls_Model</class>
+            </hackathon_customurls>
+        </models>
+        <events>
+            <controller_front_init_routers>
+                <observers>
+                    <hackathon_customurls>
+                        <class>hackathon_customurls/observer</class>
+                        <method>handleInitRouters</method>
+                    </hackathon_customurls>
+                </observers>
+            </controller_front_init_routers>
+        </events>
+    </global>
     <phpunit>
         <suite>
-            <Hackathon_CustomUrls />
+            <modules>
+                <Hackathon_CustomUrls />
+            </modules>
         </suite>
     </phpunit>
 </config>
