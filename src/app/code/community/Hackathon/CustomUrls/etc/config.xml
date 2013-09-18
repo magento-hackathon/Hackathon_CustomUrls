@@ -5,6 +5,11 @@
                 <class>Hackathon_CustomUrls_Model</class>
             </hackathon_customurls>
         </models>
+        <helpers>
+            <hackathon_customurls>
+                <class>Hackathon_CustomUrls_Helper</class>
+            </hackathon_customurls>
+        </helpers>
         <events>
             <controller_front_init_routers>
                 <observers>
