@@ -1,0 +1,10 @@
+config:
+  default/web/custom_urls/checkout_cart_index_url: mycart
+config_xml:
+  global/custom_urls: --- |
+    <custom_urls>
+        <checkout_cart_index module="hackathon_customurls" translate="label">
+            <route>checkout/cart/index</route>
+            <label>Checkout Cart Url</label>
+        </checkout_cart_index>
+    </custom_urls>
