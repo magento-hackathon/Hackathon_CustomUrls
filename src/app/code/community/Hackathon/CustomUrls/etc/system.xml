@@ -3,7 +3,7 @@
     <sections>
         <web>
             <groups>
-                <custom_url translate="label" module="hackathon_customurls">
+                <custom_urls translate="label" module="hackathon_customurls">
                     <label>Custom Urls</label>
                     <clone_fields>1</clone_fields>
                     <clone_model>hackathon_customurls/system_config_clone_customurl</clone_model>
@@ -12,17 +12,16 @@
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
-                        <custom_url>
+                        <url>
                             <label></label>
                             <frontend_type>text</frontend_type>
                             <sort_order>1</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <url></url>
-                        </custom_url>
+                        </url>
                     </fields>
-                </custom_url>
+                </custom_urls>
             </groups>
         </web>
     </sections>

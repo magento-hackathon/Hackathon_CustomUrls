@@ -13,7 +13,7 @@ class Hackathon_CustomUrls_Test_Model_System_Config_Clone_Customurl extends Ecom
         $this->assertEquals(
             array(
                 array(
-                    'field' => 'checkout_cart_index',
+                    'field' => 'checkout_cart_index_',
                     'label' => 'Checkout Cart Url'
                 ),
             ),
