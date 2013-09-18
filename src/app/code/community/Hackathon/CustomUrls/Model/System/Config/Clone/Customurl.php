@@ -12,7 +12,7 @@ class Hackathon_CustomUrls_Model_System_Config_Clone_Customurl extends Mage_Core
         $prefixes = array();
         foreach ($this->getConfiguredUrlNodes() as $name => $node) {
             $prefixes[] = array(
-                'field' => $name,
+                'field' => $name.'_',
                 'label' => (string)$node->label
             );
         }
