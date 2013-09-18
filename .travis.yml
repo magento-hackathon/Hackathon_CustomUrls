@@ -19,7 +19,7 @@ before_script:
   - bin/mage-ci install-module tests/magento $(pwd)
   # Installing EcomDev_PHPUnit module
   - git clone https://github.com/EcomDev/EcomDev_PHPUnit.git -b dev ./phpunit/
-  - bin/mage-ci install-module $CURR_DIR/tests/magento $CURR_DIR/phpunit/
+  - bin/mage-ci install-module tests/magento phpunit/
   # Configuring EcomDev_PHPUnit module
   - CURRENT_DIR=$(pwd)
   - cd tests/magento/shell
