@@ -15,6 +15,15 @@ class Hackathon_CustomUrls_Test_Config_Main extends EcomDev_PHPUnit_Test_Case_Co
      * @test
      * @group config
      */
+    public function itProperlyResolvesTheModelAliasForConfigCloneCustomurl()
+    {
+        $this->assertModelAlias('hackathon_customurls/system_config_clone_customurl', 'Hackathon_CustomUrls_Model_System_Config_Clone_Customurl');
+    }
+
+    /**
+     * @test
+     * @group config
+     */
     public function itDefinesTheRequiredCustomObserver()
     {
         $this->assertEventObserverDefined(
