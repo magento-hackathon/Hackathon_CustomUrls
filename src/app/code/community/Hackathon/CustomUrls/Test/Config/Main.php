@@ -6,7 +6,7 @@ class Hackathon_CustomUrls_Test_Config_Main extends EcomDev_PHPUnit_Test_Case_Co
      * @test
      * @group config
      */
-    public function itProperlyResolvesTheModelAlias()
+    public function itProperlyResolvesTheModelAliasForObserver()
     {
         $this->assertModelAlias('hackathon_customurls/observer', 'Hackathon_CustomUrls_Model_Observer');
     }
