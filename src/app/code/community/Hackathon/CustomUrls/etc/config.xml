@@ -15,11 +15,27 @@
                 </observers>
             </controller_front_init_routers>
         </events>
+        <custom_urls>
+            <checkout_cart_index module="hackathon_customurls" translate="label">
+                <route>checkout/cart/index</route>
+                <label>Checkout Cart Url</label>
+                <params>
+                    <!-- params array for getUrl() -->
+                </params>
+            </checkout_cart_index>
+        </custom_urls>
     </global>
+    <default>
+        <web>
+            <custom_urls>
+                <checkout_cart_index_url>mycart</checkout_cart_index_url>
+            </custom_urls>
+        </web>
+    </default>
     <phpunit>
         <suite>
             <modules>
-                <Hackathon_CustomUrls />
+                <Hackathon_CustomUrls/>
             </modules>
         </suite>
     </phpunit>
