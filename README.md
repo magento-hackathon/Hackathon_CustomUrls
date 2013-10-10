@@ -1,7 +1,7 @@
 Hackathon_CustomUrls
 ==========================
 
-[![Build Status](https://travis-ci.org/IvanChepurnyi/Hackathon_CustomUrls.png?branch=develop)](https://travis-ci.org/IvanChepurnyi/Hackathon_CustomUrls)
+[![Build Status](https://travis-ci.org/magento-hackathon/Hackathon_CustomUrls.png?branch=develop)](https://travis-ci.org/magento-hackathon/Hackathon_CustomUrls)
 
 Facts
 -----
